@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:secondlife/authentification/singUp.dart';
 
 class login extends StatefulWidget {
@@ -156,60 +156,36 @@ class _loginState extends State<login> {
                 ],
               ),
               SizedBox(
-                height: 5,
+                height: 40,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
-                        color: Color.fromARGB(206, 148, 250, 152),
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Icon(
+                        FontAwesomeIcons.facebookF,
+                        color: Colors.black,
                       ),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(
-                      "assets/fcb.png",
-                      height: 20,
-                      width: 20,
                     ),
                   ),
                   SizedBox(
-                    width: 15,
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
-                        color: Color.fromARGB(206, 148, 250, 152),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Icon(
+                        FontAwesomeIcons.google,
+                        color: Colors.black,
                       ),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(
-                      "assets/google.png",
-                      height: 20,
-                      width: 20,
                     ),
                   ),
                   SizedBox(
-                    width: 15,
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
-                        color: Color.fromARGB(206, 148, 250, 152),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Icon(
+                        FontAwesomeIcons.twitter,
+                        color: Colors.black,
                       ),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(
-                      "assets/twitter.png",
-                      height: 20,
-                      width: 20,
                     ),
                   ),
                 ],
