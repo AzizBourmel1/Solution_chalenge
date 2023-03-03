@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:secondlife/authentification/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class singup extends StatefulWidget {
   const singup({super.key});
@@ -12,6 +13,9 @@ class singup extends StatefulWidget {
 }
 
 class _singupState extends State<singup> {
+  TextEditingController _usernameController = new TextEditingController();
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +46,7 @@ class _singupState extends State<singup> {
                 width: 300,
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
+                  controller: _usernameController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
                     label: Text("Username"),
@@ -58,6 +63,7 @@ class _singupState extends State<singup> {
                 width: 300,
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
+                  controller: _emailController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.mail),
                     label: Text("Email"),
@@ -75,6 +81,7 @@ class _singupState extends State<singup> {
                 child: TextFormField(
                   obscureText: true,
                   keyboardType: TextInputType.visiblePassword,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock),
                     label: Text("Password"),
@@ -111,7 +118,22 @@ class _singupState extends State<singup> {
                   color: Color.fromARGB(255, 11, 224, 21),
                   borderRadius: BorderRadius.circular(10),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      try {
+                            FirebaseAuth.instance.createUserWithEmailAndPassword(
+                              email: _emailController.text,
+                              password: _passwordController.text
+                            );
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'weak-password') {
+                              print('The password provided is too weak.');
+                            } else if (e.code == 'email-already-in-use') {
+                              print('The account already exists for that email.');
+                            }
+                          } catch (e) {
+                            print(e);
+                          }
+                    },
                     child: Text(
                       "Sing up",
                       style: TextStyle(

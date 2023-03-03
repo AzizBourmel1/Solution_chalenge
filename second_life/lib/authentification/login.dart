@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:secondlife/authentification/singUp.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -11,6 +13,8 @@ class login extends StatefulWidget {
 }
 
 class _loginState extends State<login> {
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +43,7 @@ class _loginState extends State<login> {
                 width: 300,
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
+                  controller: _emailController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
                     label: Text("Username"),
@@ -56,6 +61,7 @@ class _loginState extends State<login> {
                 child: TextFormField(
                   obscureText: true,
                   keyboardType: TextInputType.visiblePassword,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock),
                     label: Text("Password"),
@@ -75,7 +81,20 @@ class _loginState extends State<login> {
                   color: Color.fromARGB(255, 11, 224, 21),
                   borderRadius: BorderRadius.circular(10),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      try {
+                      FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: _emailController.text,
+                        password: _passwordController.text
+                      );
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'user-not-found') {
+                        print('No user found for that email.');
+                      } else if (e.code == 'wrong-password') {
+                        print('Wrong password provided for that user.');
+                      }
+                    }
+                    },
                     child: Text(
                       "Login",
                       style: TextStyle(
