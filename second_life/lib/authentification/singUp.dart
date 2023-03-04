@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:secondlife/authentification/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class singup extends StatefulWidget {
   const singup({super.key});
@@ -13,16 +14,52 @@ class singup extends StatefulWidget {
 }
 
 class _singupState extends State<singup> {
+  GlobalKey<FormState> formState = new GlobalKey<FormState>();
   TextEditingController _usernameController = new TextEditingController();
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
+  TextEditingController _confirmPasswordController = new TextEditingController();
+  
+  signUp() async {
+    var formData = formState.currentState;
+    if(formData!.validate()){
+      if (_passwordController.text != _confirmPasswordController.text){
+        AwesomeDialog(context:context,dialogType: DialogType.error,title:"Error",desc:"Password and Confirm Password are different").show();
+      }else{
+        try {
+        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim()
+        );
+        AwesomeDialog(context:context,dialogType: DialogType.success,title:"Congratulation",desc:"Account created successfully check your email for validation").show();
+        User? user = FirebaseAuth.instance.currentUser!;
+        await user.sendEmailVerification();
+        return userCredential;
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+            AwesomeDialog(context:context,dialogType: DialogType.error,title:"Error",desc:"The password provided is too weak").show();
+        } else if (e.code == 'email-already-in-use') {
+            AwesomeDialog(context:context,dialogType: DialogType.error,title:"Error",desc:"The account already exists for that email").show();  
+        }
+      } catch (e) {
+        print(e);
+      }
+      }
+    }else{
+      print("not valid");
+    }
+
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(50.0),
-          child: Column(
+          child: Form(
+            key: formState,
+            child: Column(
             children: [
               SizedBox(
                 height: 40,
@@ -46,6 +83,14 @@ class _singupState extends State<singup> {
                 width: 300,
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
+                  validator: (val){
+                    if(val == ""){
+                      return "Fill username field";
+                    }
+                    if (val!.length <= 2){
+                      return "Username must be at least 3 characters";
+                    }
+                  },
                   controller: _usernameController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
@@ -63,6 +108,11 @@ class _singupState extends State<singup> {
                 width: 300,
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
+                  validator: (val){
+                    if(val == ""){
+                      return "Fill email field";
+                    }
+                  },
                   controller: _emailController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.mail),
@@ -81,6 +131,14 @@ class _singupState extends State<singup> {
                 child: TextFormField(
                   obscureText: true,
                   keyboardType: TextInputType.visiblePassword,
+                  validator: (val){
+                    if(val == ""){
+                      return "Fill password field";
+                    }
+                    if (val!.length < 8){
+                      return "Password must be at least 8 characters";
+                    }
+                  },
                   controller: _passwordController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock),
@@ -99,6 +157,15 @@ class _singupState extends State<singup> {
                 child: TextFormField(
                   obscureText: true,
                   keyboardType: TextInputType.visiblePassword,
+                  validator: (val){
+                    if(val == ""){
+                      return "Fill confirm password field";
+                    }
+                    if (val!.length < 8){
+                      return "Confirm password must be at least 8 characters";
+                    }
+                  },
+                  controller: _confirmPasswordController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock),
                     label: Text("Confirm Password"),
@@ -118,21 +185,8 @@ class _singupState extends State<singup> {
                   color: Color.fromARGB(255, 11, 224, 21),
                   borderRadius: BorderRadius.circular(10),
                   child: MaterialButton(
-                    onPressed: () {
-                      try {
-                            FirebaseAuth.instance.createUserWithEmailAndPassword(
-                              email: _emailController.text,
-                              password: _passwordController.text
-                            );
-                          } on FirebaseAuthException catch (e) {
-                            if (e.code == 'weak-password') {
-                              print('The password provided is too weak.');
-                            } else if (e.code == 'email-already-in-use') {
-                              print('The account already exists for that email.');
-                            }
-                          } catch (e) {
-                            print(e);
-                          }
+                    onPressed: () async{
+                    await signUp();
                     },
                     child: Text(
                       "Sing up",
@@ -239,6 +293,7 @@ class _singupState extends State<singup> {
               ),
             ],
           ),
+          )
         ),
       ),
     );
