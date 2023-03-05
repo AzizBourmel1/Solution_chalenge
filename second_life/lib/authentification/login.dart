@@ -5,6 +5,7 @@ import 'package:secondlife/authentification/singUp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:secondlife/home/buttomNavigation.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -139,6 +140,12 @@ class _loginState extends State<login> {
                       child: MaterialButton(
                         onPressed: () async {
                           await signIn();
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => buttomNavigation(),
+                            ),
+                          );
                         },
                         child: Text(
                           "Login",

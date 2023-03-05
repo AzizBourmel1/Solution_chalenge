@@ -216,6 +216,12 @@ class _singupState extends State<singup> {
                       child: MaterialButton(
                         onPressed: () async {
                           await signUp();
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => login(),
+                            ),
+                          );
                         },
                         child: Text(
                           "Sing up",

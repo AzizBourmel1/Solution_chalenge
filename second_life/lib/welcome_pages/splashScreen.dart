@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:secondlife/authentification/login.dart';
-import 'package:secondlife/welcome_pages/guide.dart';
 import 'package:secondlife/welcome_pages/onbording.dart';
 
 class SplashScreem extends StatefulWidget {
