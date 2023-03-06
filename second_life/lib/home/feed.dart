@@ -29,7 +29,6 @@ class _feedState extends State<feed> {
                   prefixIcon: Icon(Icons.search),
                   label: Text("Search "),
                   border: OutlineInputBorder(
-                    borderSide: Colors.amber,
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
@@ -43,7 +42,7 @@ class _feedState extends State<feed> {
                   children: [
                     Container(
                       height: 350,
-                      width: 300,
+                      width: 250,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.green),
                         borderRadius: BorderRadius.circular(10),
@@ -98,7 +97,7 @@ class _feedState extends State<feed> {
                       ),
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 20,
                     ),
                   ],
                 ),
@@ -111,7 +110,7 @@ class _feedState extends State<feed> {
                   children: [
                     Container(
                       height: 350,
-                      width: 300,
+                      width: 250,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.green),
                         borderRadius: BorderRadius.circular(10),

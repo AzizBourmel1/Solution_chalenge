@@ -44,7 +44,7 @@ class _SplashScreemState extends State<SplashScreem> {
               height: 100,
               child: Image.asset("assets/logo.png"),
             ),
-          )
+          ),
         ],
       ),
     );
