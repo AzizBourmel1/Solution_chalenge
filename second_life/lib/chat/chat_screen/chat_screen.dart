@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class chat extends StatefulWidget {
-  const chat({super.key});
+class chatScreen extends StatefulWidget {
+  const chatScreen({super.key});
 
   @override
-  State<chat> createState() => _chatState();
+  State<chatScreen> createState() => _chatScreenState();
 }
 
-class _chatState extends State<chat> {
+class _chatScreenState extends State<chatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("chat"),
+      body: Center(
+        child: Text("body"),
       ),
     );
   }

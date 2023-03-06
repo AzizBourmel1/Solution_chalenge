@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:secondlife/authentification/login.dart';
 import 'package:secondlife/authentification/singUp.dart';
-import 'package:secondlife/home/Chat.dart';
+import 'package:secondlife/chat/Ui/chat_liste_screen.dart';
 import 'package:secondlife/home/Feed.dart';
 import 'package:secondlife/home/Settings.dart';
 import 'package:secondlife/home/position.dart';
@@ -22,7 +22,7 @@ void main() async {
       '/singUp': (context) => singup(),
       '/splashScreen': (context) => SplashScreem(),
       '/search': (context) => search(),
-      '/chat': (context) => chat(),
+      '/chat': (context) => chatListScreen(),
       '/feed': (context) => feed(),
       '/position': (context) => position(),
       '/settings': (context) => settings(),

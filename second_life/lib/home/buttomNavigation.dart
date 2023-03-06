@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:secondlife/home/Chat.dart';
+import 'package:secondlife/chat/Ui/chat_liste_screen.dart';
 import 'package:secondlife/home/Feed.dart';
 import 'package:secondlife/home/Settings.dart';
 import 'package:secondlife/home/position.dart';
@@ -22,7 +22,7 @@ class _buttomNavigationState extends State<buttomNavigation> {
 
   final _widgetsExamples = [
     search(),
-    chat(),
+    chatListScreen(),
     feed(),
     position(),
     settings(),
