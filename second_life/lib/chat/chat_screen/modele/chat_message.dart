@@ -34,7 +34,7 @@ List<ChatMessage> dummyCHatMessages = [
       isSender: true),
   ChatMessage(
       text: "hi Eslam",
-      messageType: ChatMessageType.text,
+      messageType: ChatMessageType.video,
       messageStatus: MessageStatus.viewed,
       isSender: false),
   ChatMessage(

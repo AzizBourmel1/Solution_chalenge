@@ -19,12 +19,14 @@ class _chatsBodyState extends State<chatsBody> {
       children: [
         Expanded(
           child: ListView.builder(
-              itemCount: chatsData.length,
-              itemBuilder: (context, index) => ChatCard(
-                    chat: chatsData[index],
-                    press: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => chatScreen())),
-                  )),
+            itemCount: chatsData.length,
+            itemBuilder: (context, index) => ChatCard(
+                chat: chatsData[index],
+                press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => chatScreen()),
+                    )),
+          ),
         ),
       ],
     );

@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:secondlife/chat/chat.dart';
 import 'package:secondlife/chat/chat_screen/ui/components/message_body.dart';
 
-class chatScreen extends StatefulWidget {
+class chatScreen extends StatelessWidget {
   const chatScreen({super.key});
 
-  @override
-  State<chatScreen> createState() => _chatScreenState();
-}
-
-class _chatScreenState extends State<chatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: buildAppBar(context), body: MessageBody());
@@ -19,7 +13,7 @@ class _chatScreenState extends State<chatScreen> {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       title: Text(
-        "Aziz Bourmel",
+        "Aziz b",
         style: TextStyle(fontSize: 16),
       ),
       actions: [

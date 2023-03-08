@@ -14,6 +14,11 @@ class feed extends StatefulWidget {
 
 class _feedState extends State<feed> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -41,7 +46,7 @@ class _feedState extends State<feed> {
                 child: Column(
                   children: [
                     Container(
-                      height: 350,
+                      height: 400,
                       width: 250,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.green),
