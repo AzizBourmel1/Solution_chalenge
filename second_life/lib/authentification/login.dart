@@ -27,10 +27,17 @@ class _loginState extends State<login> {
                 email: _emailController.text,
                 password: _passwordController.text);
         User? user = FirebaseAuth.instance.currentUser;
-        print(user!.emailVerified);
-        // if (user!= null && !user.emailVerified) {
-        //   await user.sendEmailVerification();
-        // }
+        if (user != null && !user.emailVerified) {
+          await user.sendEmailVerification();
+          AwesomeDialog(
+                  context: context,
+                  dialogType: DialogType.error,
+                  title: "Error",
+                  desc: "A validation link has been sent to your account")
+              .show();
+        } else {
+          Navigator.of(context).pushReplacementNamed("/home");
+        }
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           AwesomeDialog(

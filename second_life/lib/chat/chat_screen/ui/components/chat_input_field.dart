@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:secondlife/chat/chat_screen/modele/chat_message.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class ChatInputField extends StatefulWidget {
   const ChatInputField({super.key});
@@ -69,9 +70,9 @@ class _ChatInputFieldState extends State<ChatInputField> {
                                   messageStatus: MessageStatus.viewed,
                                   isSender: true,
                                   imageUrl: file.path);
-                              //final storage = FirebaseStorage.instance;
-                              //final firestore = FirebaseFirestore.instance;
-                              //final user = FirebaseAuth.instance.currentUser;
+                              // final storage = FirebaseStorage.instance;
+                              // final firestore = FirebaseFirestore.instance;
+                              // final user = FirebaseAuth.instance.currentUser;
                               // final ref = storage.ref().child('images').child(
                               //           DateTime.now().toIso8601String() + file.name);
                               //       await ref.putFile(File(file.path));

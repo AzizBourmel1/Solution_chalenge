@@ -49,8 +49,7 @@ class _singupState extends State<singup> {
           User? user = FirebaseAuth.instance.currentUser!;
           await user.sendEmailVerification();
           sleep(const Duration(seconds: 2));
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => login()));
+          Navigator.of(context).pushReplacementNamed("singup");
           return userCredential;
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {

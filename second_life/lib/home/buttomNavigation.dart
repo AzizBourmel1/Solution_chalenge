@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:secondlife/chat/Ui/chat_liste_screen.dart';
-import 'package:secondlife/home/Feed.dart';
-import 'package:secondlife/home/Settings.dart';
+import 'package:secondlife/home/feed.dart';
+import 'package:secondlife/home/settings.dart';
 import 'package:secondlife/home/position.dart';
 import 'package:secondlife/home/search.dart';
 

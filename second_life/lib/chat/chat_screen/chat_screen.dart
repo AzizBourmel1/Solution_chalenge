@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:secondlife/chat/chat.dart';
+import 'package:secondlife/chat/Chat.dart';
 import 'package:secondlife/chat/chat_screen/ui/components/message_body.dart';
 
 class chatScreen extends StatelessWidget {
