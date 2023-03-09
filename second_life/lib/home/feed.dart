@@ -51,7 +51,7 @@ class _feedState extends State<feed> {
                       margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                       child: Column(children: [
                         Container(
-                          height: 400,
+                          height: 300,
                           width: 250,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.green),

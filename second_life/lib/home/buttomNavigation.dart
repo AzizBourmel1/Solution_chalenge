@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:secondlife/chat/Ui/chat_liste_screen.dart';
 import 'package:secondlife/home/feed.dart';
 import 'package:secondlife/home/settings.dart';
-import 'package:secondlife/home/position.dart';
-import 'package:secondlife/home/search.dart';
+import 'package:secondlife/position/position.dart';
+import 'package:secondlife/search/search.dart';
 
 class buttomNavigation extends StatefulWidget {
   const buttomNavigation({super.key});

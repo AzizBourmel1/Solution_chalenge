@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:secondlife/position/form.dart';
 
 class position extends StatefulWidget {
   const position({super.key});
@@ -19,6 +20,11 @@ class _positionState extends State<position> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // Add your onPressed code here!
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => form(),
+              ));
         },
         label: const Text('Share'),
         icon: const Icon(Icons.shopping_cart_checkout_sharp),

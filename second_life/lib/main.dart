@@ -6,8 +6,9 @@ import 'package:secondlife/authentification/singUp.dart';
 import 'package:secondlife/chat/Ui/chat_liste_screen.dart';
 import 'package:secondlife/home/feed.dart';
 import 'package:secondlife/home/settings.dart';
-import 'package:secondlife/home/position.dart';
-import 'package:secondlife/home/search.dart';
+import 'package:secondlife/position/form.dart';
+import 'package:secondlife/position/position.dart';
+import 'package:secondlife/search/search.dart';
 
 import 'package:secondlife/welcome_pages/onbording.dart';
 import 'package:secondlife/welcome_pages/splashScreen.dart';
@@ -35,6 +36,7 @@ void main() async {
       '/feed': (context) => feed(),
       '/position': (context) => position(),
       '/settings': (context) => settings(),
+      '/form': (context) => form(),
       '/home': (context) => Onbording(),
     },
   ));
