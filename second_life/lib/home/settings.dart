@@ -108,7 +108,22 @@ class _settingsState extends State<settings> {
                 child: TextFormField(
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
-                      label: Text("User Name "),
+                      label: Text(" Name "),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      )),
+                  keyboardType: TextInputType.text,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                width: 350,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.person),
+                      label: Text("Familly Name "),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       )),
@@ -154,7 +169,39 @@ class _settingsState extends State<settings> {
                   obscureText: true,
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.password),
+                      labelText: "old Passeword",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      )),
+                  keyboardType: TextInputType.text,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                width: 350,
+                child: TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.password),
                       labelText: "New Passeword",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      )),
+                  keyboardType: TextInputType.text,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                width: 350,
+                child: TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.password),
+                      labelText: "Confirm Passeword",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       )),
