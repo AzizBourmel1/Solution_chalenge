@@ -96,7 +96,7 @@ class _OnbordingState extends State<Onbording> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => buttomNavigation(),
+                        builder: (_) => login(),
                       ),
                     );
 
