@@ -24,30 +24,28 @@ class _positionState extends State<position> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      child: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+      body: Container(
+        child: GoogleMap(
+          mapType: MapType.normal,
+          initialCameraPosition: _kGooglePlex,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+        ),
       ),
-      // const Center(
-      //   child: Text('Press the button with a label below!'),
-      // ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   onPressed: () {
-      //     // Add your onPressed code here!
-      //     Navigator.pushReplacement(
-      //         context,
-      //         MaterialPageRoute(
-      //           builder: (_) => form(),
-      //         ));
-      //   },
-      //   label: const Text('Share'),
-      //   icon: const Icon(Icons.shopping_cart_checkout_sharp),
-      //   backgroundColor: Colors.blue,
-      // ),
-    ));
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          // Add your onPressed code here!
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => form(),
+              ));
+        },
+        label: const Text('Share'),
+        icon: const Icon(Icons.shopping_cart_checkout_sharp),
+        backgroundColor: Colors.blue,
+      ),
+    );
   }
 }

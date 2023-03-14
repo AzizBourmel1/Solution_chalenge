@@ -22,187 +22,195 @@ class _searchState extends State<search> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  label: Text("Search store"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search),
+                      label: Text("Search store"),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    keyboardType: TextInputType.text,
                   ),
-                ),
-                keyboardType: TextInputType.text,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                child: Column(
-                  children: [
-                    Row(
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    child: Column(
                       children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 150,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.green),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromARGB(255, 160, 232, 162))
-                              ],
-                            ),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage("assets/login.png"),
+                        Row(
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                width: 150,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.green),
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color:
+                                            Color.fromARGB(255, 160, 232, 162))
+                                  ],
                                 ),
-                                SizedBox(
-                                  height: 20,
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image: AssetImage("assets/login.png"),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Title",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  "Title",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.green),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromARGB(255, 160, 232, 162)),
-                              ],
-                            ),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage("assets/login.png"),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "title",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.green,
                               ),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromARGB(255, 160, 232, 162),
-                                ),
-                              ],
                             ),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage("assets/login.png"),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "title",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ],
+                            SizedBox(
+                              width: 30,
                             ),
-                          ),
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.green),
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color:
+                                            Color.fromARGB(255, 160, 232, 162)),
+                                  ],
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image: AssetImage("assets/login.png"),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "title",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
-                          width: 30,
+                          height: 30,
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.green),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color:
-                                          Color.fromARGB(255, 160, 232, 162)),
-                                ]),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage("assets/login.png"),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "title",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
+                        Row(
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.green,
                                   ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color.fromARGB(255, 160, 232, 162),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image: AssetImage("assets/login.png"),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "title",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.green),
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromARGB(
+                                              255, 160, 232, 162)),
+                                    ]),
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image: AssetImage("assets/login.png"),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "title",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
