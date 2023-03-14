@@ -6,6 +6,7 @@ import 'package:secondlife/authentification/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:io';
 
 class singup extends StatefulWidget {
@@ -47,9 +48,20 @@ class _singupState extends State<singup> {
                       "Account created successfully check your email for validation")
               .show();
           User? user = FirebaseAuth.instance.currentUser!;
+          Map<String, dynamic> document = {
+            'email': _emailController.text,
+            'username': _usernameController.text,
+            'family_name': "",
+            'name': "",
+            'phone_number': "",
+            'image': ""
+          };
+          print(document);
+          CollectionReference users =
+              FirebaseFirestore.instance.collection('users');
+          users.add(document);
           await user.sendEmailVerification();
-          sleep(const Duration(seconds: 2));
-          Navigator.of(context).pushReplacementNamed("singup");
+          Navigator.of(context).pushReplacementNamed("/login");
           return userCredential;
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
@@ -215,12 +227,6 @@ class _singupState extends State<singup> {
                       child: MaterialButton(
                         onPressed: () async {
                           await signUp();
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => login(),
-                            ),
-                          );
                         },
                         child: Text(
                           "Sing up",

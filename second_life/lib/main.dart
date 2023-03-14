@@ -26,7 +26,7 @@ void main() async {
   }
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: isLogged == true ? login() : SplashScreem(),
+    home: isLogged == true ? Onbording() : login(),
     routes: {
       '/login': (context) => login(),
       '/singUp': (context) => singup(),

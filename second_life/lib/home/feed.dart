@@ -89,12 +89,6 @@ class _feedState extends State<feed> {
                                   await launchUrl(
                                     Uri.parse(results[i]['link']),
                                   );
-                                  // Uri url = Uri.parse(results[i]['link']
-                                  //     .replaceAll("https://", ""));
-                                  // final visit = await launchUrl(
-                                  //   url,
-                                  //   mode: LaunchMode.externalApplication,
-                                  // );
                                 },
                                 child: Text(
                                   "Consulter",

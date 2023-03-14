@@ -146,12 +146,6 @@ class _loginState extends State<login> {
                       child: MaterialButton(
                         onPressed: () async {
                           await signIn();
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => buttomNavigation(),
-                            ),
-                          );
                         },
                         child: Text(
                           "Login",

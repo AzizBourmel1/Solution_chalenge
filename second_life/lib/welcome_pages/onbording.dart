@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:secondlife/authentification/login.dart';
 import 'package:secondlife/home/buttomNavigation.dart';
 
 import 'content_model.dart';
@@ -96,7 +95,7 @@ class _OnbordingState extends State<Onbording> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => login(),
+                        builder: (_) => buttomNavigation(),
                       ),
                     );
 
