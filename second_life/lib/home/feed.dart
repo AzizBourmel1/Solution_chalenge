@@ -87,8 +87,7 @@ class _feedState extends State<feed> {
                               MaterialButton(
                                 onPressed: () async {
                                   await launchUrl(
-                                    Uri.parse(results[i]['link']),
-                                  );
+                                      Uri.parse(results[i]['link']));
                                 },
                                 child: Text(
                                   "Consulter",
