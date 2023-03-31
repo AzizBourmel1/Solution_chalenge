@@ -1,0 +1,64 @@
+  /*****sidebar card******/
+
+  .skills{
+    display: flex;
+    flex-direction: row;
+  }
+  .cardprofile {
+      width: 350px;
+      background-color: #efefef;
+      border: none;
+      cursor: pointer;
+      transition: all 0.5s;
+  }
+   .name {
+      font-size: 22px;
+      font-weight: bold
+  }
+  .text span {
+      font-size: 13px;
+      color: #545454;
+      font-weight: 500
+  }
+  .icons i {
+      font-size: 19px
+  }
+
+/*** DASHBOARD****/
+  .container-fluid, .containerdashboard{
+    display: flex;
+    flex-direction: row;
+  }
+  .carddash{
+    width: 30%;
+    margin: auto;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .12);
+    border: 1px solid transparent;
+    transition: .5s;
+}
+
+.carddash:hover {
+    border-color: rgba(0, 0.1, 0, .08);
+    box-shadow: none;
+}
+
+@media (max-width: 991.98px) {
+  .container-fluid, .containerdashboard{
+    display: flex;
+    flex-direction: column;
+      }
+  .carddash{
+    min-width: 75%;
+    margin: 30px auto ;
+    height: 350px;
+    border-radius: 10px;
+  }
+
+    }
+.titledash{
+  margin: 4rem auto 0 2rem;
+  font-size: 2.2rem;
+}
+/****OFFRES DE RECRUTEUR****/

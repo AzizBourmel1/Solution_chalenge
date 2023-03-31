@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block content %}
+<h1>Posts</h1>
+
+<div id="googleMap" style="width: 100%; height: 400px"></div>
+
+<script>
+  function myMap() {
+    let posts = {{ allPosts | tojson }};
+    console.log(posts[0].latitude)
+    console.log(posts)
+    var mapProp = {
+      center: new google.maps.LatLng(35.5082551, 5.2676704),
+      zoom: 10,
+    };
+    var map = new google.maps.Map(
+      document.getElementById("googleMap"),
+      mapProp
+    );
+    for(let i=0; i<posts.length;i++){
+      var contentString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1>'+posts[i].product+'</h1>' +
+    '<div id="bodyContent">' +
+    "<p>Product : " + posts[i].product+
+    "<br> quantity :  " + posts[i].quantity+" KG <br> phone number : " + posts[i].quantity +
+    "</p>" +
+    "<a href="+posts[i].image+">click here to view image</a>"
+    "</div>" +
+    "</div>";
+
+
+
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        ariaLabel: posts[i].product,
+      });
+
+      const marker = new google.maps.Marker({
+        position: { lat: posts[i].latitude , lng:  posts[i].longitude},
+        map,
+        title: posts[i].product,
+      });
+
+      marker.addListener("click", () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+        });
+      });
+
+    }
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoThCfiQ7BbA5tP7LqdrbwCHN85ruWcBY&callback=myMap"></script>
+{% endblock %}
