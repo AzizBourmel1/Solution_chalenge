@@ -22,7 +22,7 @@ class _feedState extends State<feed> {
     var url = Uri.parse("https://feed-v1-3th2l3odha-ew.a.run.app/");
     var response = await http.get(url);
     var responseBody = jsonDecode(response.body);
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < responseBody.length; i++) {
       results.add(responseBody[i]);
     }
     setState(() {
@@ -42,7 +42,7 @@ class _feedState extends State<feed> {
         appBar: AppBar(
           title: Text('Dialog'),
         ),
-        body: results == null || results.isEmpty
+        body: results.isEmpty
             ? Center(child: CircularProgressIndicator())
             : ListView.builder(
                 itemCount: results.length,

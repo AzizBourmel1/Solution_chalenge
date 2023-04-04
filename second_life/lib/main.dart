@@ -9,7 +9,7 @@ import 'package:secondlife/home/settings.dart';
 import 'package:secondlife/position/form.dart';
 import 'package:secondlife/position/position.dart';
 import 'package:secondlife/search/search.dart';
-
+import 'package:secondlife/home/buttomNavigation.dart';
 import 'package:secondlife/welcome_pages/onbording.dart';
 import 'package:secondlife/welcome_pages/splashScreen.dart';
 
@@ -26,7 +26,7 @@ void main() async {
   }
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: isLogged == false ? login() : Onbording(),
+    home: isLogged == false ? login() : buttomNavigation(),
     routes: {
       '/login': (context) => login(),
       '/singUp': (context) => singup(),
